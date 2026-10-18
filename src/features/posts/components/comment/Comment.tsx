@@ -87,7 +87,7 @@ export default function Comment({
       const formData = new FormData();
       if (commentContent.trim()) formData.set("content", commentContent);
       if (imgFile) formData.set("image", imgFile);
-      updateComment(comment.post, comment._id, formData);
+      await updateComment(comment.post, comment._id, formData);
       setCommentContent("");
       setImgFile(null);
       setInEditMode(false);
@@ -124,7 +124,7 @@ export default function Comment({
                 </time>
               </p>
             </div>
-            {comment.commentCreator._id === userData?.id && (
+            {comment.commentCreator?._id === userData?.id && (
               <Dropdown>
                 <DropdownTrigger>
                   <Button
@@ -170,7 +170,6 @@ export default function Comment({
                 placeholder={`Comment as ${userData?.name}...`}
                 rows={1}
                 className="max-h-35 min-h-10 w-full resize-none bg-transparent px-2 py-1.5 text-xs leading-5 outline-none placeholder:text-slate-500"
-                defaultValue={""}
               />
               {imgPreview && (
                 <div className="relative w-80 mb-3">
@@ -259,7 +258,7 @@ export default function Comment({
         backdrop="blur"
       >
         <ModalContent>
-          <ModalHeader>Delete post?</ModalHeader>
+          <ModalHeader>Delete comment?</ModalHeader>
           <ModalBody>
             <p className="text-sm text-slate-600">
               This action can't be undone. The post will be permanently removed.

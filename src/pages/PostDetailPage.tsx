@@ -17,7 +17,7 @@ export default function PostDetailPage() {
     try {
       const response = await postsServices.getPostDetails(postId);
       setPost(response.data.post);
-      await getPostComments()
+      await getPostComments();
     } finally {
       setIsLoading(false);
     }
@@ -108,6 +108,7 @@ export default function PostDetailPage() {
       </div>
     );
   }
+  if (!post) return <p>Post not found</p>;
   return (
     <>
       <div className="w-full mt-3 ">

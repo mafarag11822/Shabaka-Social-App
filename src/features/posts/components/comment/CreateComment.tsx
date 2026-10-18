@@ -47,7 +47,7 @@ export default function CreateComment({
       const formData = new FormData();
       if (commentContent.trim()) formData.set("content", commentContent);
       if (imgFile) formData.set("image", imgFile);
-      createComment(post._id, formData);
+      await createComment(post._id, formData);
       setCommentContent("");
       setIsCommentOpen(false)
     } finally {

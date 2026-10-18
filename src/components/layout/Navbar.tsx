@@ -61,7 +61,7 @@ export default function NavbarComponent() {
                   `flex gap-1 items-center text-[14px] font-bold p-2 rounded-xl ${isActive ? "text-[#0066FF] p-2 rounded-xl bg-white" : ""}`
                 }
                 color="secondary"
-                to={`/profile/${userData.id}`}
+                to={`/profile/${userData?.id}`}
               >
                 <LuUser className="text-[18px] " />{" "}
                 <span className="hidden sm:block">Profile</span>

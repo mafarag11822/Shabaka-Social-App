@@ -59,7 +59,7 @@ export default function PostCard({
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isDeleting, setIsDeleting] = useState(false);
   const [isCommentOpen, setIsCommentOpen] = useState(false);
-  const isOwner = post!.user._id === userData?.id;
+  const isOwner = post?.user?._id === userData?.id;
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const isPostDetails = pathname.startsWith("/posts/");
