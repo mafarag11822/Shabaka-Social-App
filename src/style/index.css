@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@plugin '../hero.ts';
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
+@theme {
+  --font-days: "Days One", sans-serif;
+}
+body {
+  font-family: var(--font-days);
+  background-color: #f0f2f5;
+  min-height: 100dvh;
+}
